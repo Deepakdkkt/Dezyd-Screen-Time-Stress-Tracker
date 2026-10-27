@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>2027 Screen-Time &amp; Stress Dashboard · Dezyd</title>
+<meta name="description" content="Interactive 2027 screen-time, stress, mood, sleep and activity dashboard with editable daily logs.">
+<meta name="theme-color" content="#000000">
+<link rel="icon" type="image/svg+xml" href="assets/dezyd-icon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<header>
+<div class="hw">
+ <div class="brand">
+  <img class="logo" src="assets/dezyd-logo-white.svg" alt="Dezyd" onerror="this.parentNode.classList.add('nologo')">
+  <span class="eyebrow">Analytics Dashboard</span>
+ </div>
+ <h1>2027 Screen-Time &amp; Stress</h1>
+ <p class="sub">Annual Executive Dashboard</p>
+ <p class="lead">Year-to-date consolidated analytics across 12 monthly logs</p>
+ <div class="tabs" role="tablist"><button class="tab on" data-v="dash">Dashboard</button><button class="tab" data-v="logs">Daily Logs</button></div>
+</div>
+<span class="bgnum" aria-hidden="true">2027</span>
+</header>
+<main>
+<section class="view on" id="v-dash">
+ <div class="bar"><div class="seg" id="range"></div></div>
+ <div class="kpis" id="kpis"></div>
+ <p class="quote" id="ins"></p>
+ <div class="grid two">
+  <div class="card"><h2>Screen time by month</h2><p class="hint">Work + entertainment, avg hours per day</p><div class="leg" id="l1"></div><div class="ch" id="c1"></div></div>
+  <div class="card"><h2>Stress &amp; mood</h2><p class="hint">Monthly averages, scale 1–10</p><div class="leg" id="l2"></div><div class="ch" id="c2"></div></div>
+  <div class="card"><h2>Sleep duration</h2><p class="hint">Average hours per night</p><div class="ch" id="c3"></div></div>
+  <div class="card"><h2>Physical activity</h2><p class="hint">Total minutes per month</p><div class="ch" id="c4"></div></div>
+ </div>
+ <div class="card" style="margin-top:14px"><h2>2027 Monthly Rollup Performance Summary</h2><p class="hint">Tap a month to open its daily log. Tap a column header to sort. Stress shading: dark ≥ 7, mid 5–6.9, light &lt; 5.</p>
+  <table class="rt" id="roll"></table></div>
+</section>
+<section class="view" id="v-logs">
+ <div class="months" id="months"></div>
+ <div class="bar">
+  <label class="field">Day type<select id="fT"><option value="">All days</option><option value="w">Work sessions</option><option value="d">Digital detox &amp; rest</option></select></label>
+  <label class="field">Stress level<select id="fS"><option value="">All levels</option><option value="hi">High (8–10)</option><option value="md">Medium (5–7)</option><option value="lo">Low (1–4)</option></select></label>
+  <label class="field">Search date / notes<input id="fQ" type="search" placeholder="e.g. 2027-01-1 or detox"></label>
+ </div>
+ <div class="card"><h2 id="lt">Daily Screen-Time &amp; Stress Log</h2><p class="hint" id="lh"></p><div class="tiles" id="tiles"></div></div>
+ <div class="card"><h2>Daily stress &amp; mood</h2><div class="leg" id="l5"></div><div class="ch" id="c5"></div></div>
+ <div class="card"><div id="logwrap"></div>
+  <div class="bar" style="margin:12px 0 0"><button class="btn" id="exp">Export all data (CSV)</button><button class="btn sec" id="rst">Reset edits</button></div>
+  <p class="foot">Every value is editable. Totals, averages and charts recalculate instantly and are saved in this browser.</p></div>
+</section>
+</main>
+<script src="script.js"></script>
+</body>
+</html>
